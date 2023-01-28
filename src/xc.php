@@ -144,6 +144,24 @@ function myip(){
     return $result;
 }
 
+function infoGempa(){
+    $data_gempa = json_decode(seeURL("https://data.bmkg.go.id/DataMKG/TEWS/autogempa.json"),true);
+    $data = $data_gempa['Infogempa']['gempa'];
+    $Tanggal = $data['Tanggal'];
+    $Jam = $data['Jam'];
+    $Lintang = $data['Lintang'];
+    $Bujur = $data['Bujur'];
+    $Magnitude = $data['Magnitude'];
+    $Kedalaman = $data['Kedalaman'];
+    $Wilayah = $data['Wilayah'];
+    $Potensi = $data['Potensi'];
+    $Dirasakan = $data['Dirasakan'];
+    $Shakemap = $data['Shakemap'];
+    
+    $result = "Info Gempa Terbaru\n↳ Tanggal : $Tanggal\n↳ Jam : $Jam \n↳ Lintang : $Lintang \n↳ Bujur : $Bujur \n↳ Magnitude : $Magnitude \n↳ Kedalaman : $Kedalaman \n↳ Wilayah : $Wilayah \n↳ Potensi : $Potensi \n↳ Dirasakan : $Dirasakan \n↳ https://data.bmkg.go.id/DataMKG/TEWS/$Shakemap\n\n\n====================\nby : t.me/applehitam\n====================\n";
+    return $result;
+}
+
 function Speedtest(){
 
 $result = shell_exec('speedtest > result && cat result');
