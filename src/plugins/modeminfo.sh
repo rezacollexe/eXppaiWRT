@@ -30,7 +30,7 @@
 #
 #. /usr/share/libubox/jshn.sh
 
-
+cpu_temp="/sys/class/hwmon/hwmon0/temp1_input"
 filename="/tmp/status1.file"
 line=$(sed '5q;d' $filename)
 echo -e "Modem : $line"
@@ -38,8 +38,13 @@ line=$(sed '6q;d' $filename)
 echo -e "Operator : $line"
 line=$(sed '7q;d' $filename)
 echo -e "Network : $line"
+line=$(sed '1q;d' $cpu_temp)
+res_calc=$(($line/1000)) 
+echo -e "Suhu STB : $res_calc °C"
 line=$(sed '30q;d' $filename)
-echo -e "Suhu : $line"
+echo -e "Suhu Modem : $line"
+
+
 #footer_xppaiwrt
 
 #finalize

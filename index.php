@@ -72,7 +72,9 @@ $bot->cmd('/cmdlist', function () {
  ↳/myip      | Get ip details 
  ↳/speedtest | Speedtest 
  ↳/ping      | Ping bot
- ↳/sysinfo   | System Information</code>",$options);
+ ↳/sysinfo   | System Information
+ ↳/modeminfo | Modem Information
+ </code>",$options);
 }
 });
 
@@ -137,7 +139,7 @@ $bot->cmd('/speedtest', function () {
     $options = ['parse_mode' => 'html','reply' => true];
     if(auth()==true){
     Bot::sendMessage("<code>Speedtest on Progress</code>", $options);
-    return Bot::sendMessage("<code>".Speedtest()."</code>",$options);
+    return Bot::sendMessage("".Speedtest()."",$options);
     }
 });
 $bot->cmd('/infogempa', function () {
