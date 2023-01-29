@@ -105,6 +105,13 @@ $bot->cmd('/sysinfo', function () {
     }
 });
 
+$bot->cmd('/modeminfo', function () {
+    if(auth()==true){
+    $options = ['parse_mode' => 'html','reply' => true];
+    return Bot::sendMessage("".shell_exec("src/plugins/modeminfo.sh -bw")."",$options);
+    }
+});
+
 $bot->cmd('/oc', function () {
     if(auth()==true){
     $options = ['parse_mode' => 'html','reply' => true];

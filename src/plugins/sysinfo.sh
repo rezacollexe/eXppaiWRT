@@ -183,7 +183,8 @@ suhu_xc() {
 }
 
 footer_xppaiwrt() {
-	printf "Mod: XppaiWRT"
+	printf "Credit to Original Modder: XppaiWRT"
+	printf "Mod By : t.me/applehitam"
 }
 
 print_machine() {
