@@ -75,6 +75,7 @@ $bot->cmd('/cmdlist', function () {
  ↳/ping      | Ping bot
  ↳/sysinfo   | System Information
  ↳/modeminfo | Modem Information
+ ↳/testbug   | Test all bug under 'TESTBUG' proxy provider
  </code>",$options);
 }
 });
@@ -84,6 +85,14 @@ $bot->cmd('/proxies', function () {
 	if(auth()==true){
     $options = ['parse_mode' => 'html','reply' => true];
     return Bot::sendMessage("<code>".Proxies()."</code>",$options);
+}
+});
+
+$bot->cmd('/testbug', function () {
+	if(auth()==true){
+    $options = ['parse_mode' => 'html','reply' => true];
+    // Bot::sendMessage("".shell_exec("src/plugins/modeminfo.sh -bw")."",$options);
+    return Bot::sendMessage("<code>".ProxiesTest()."</code>",$options);
 }
 });
 
