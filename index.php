@@ -64,6 +64,7 @@ $bot->cmd('/cmdlist', function () {
  ↳/proxies   | Proxies status 
  ↳/rules     | Rule list 
  ↳/restartoc | Restart Openclash 
+ ↳/testbug   | Test all bug under 'TESTBUG' proxy provider
 📁MyXL Command 
  ↳/myxl      | Bandwidth usage 
  ↳/setxl 087 | Set default number
@@ -75,7 +76,6 @@ $bot->cmd('/cmdlist', function () {
  ↳/ping      | Ping bot
  ↳/sysinfo   | System Information
  ↳/modeminfo | Modem Information
- ↳/testbug   | Test all bug under 'TESTBUG' proxy provider
  </code>",$options);
 }
 });
