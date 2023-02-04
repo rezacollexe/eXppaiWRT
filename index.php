@@ -63,6 +63,7 @@ $bot->cmd('/cmdlist', function () {
  ↳/oc        | OC Information
  ↳/proxies   | Proxies status 
  ↳/rules     | Rule list 
+ ↳/restartoc | Restart Openclash 
 📁MyXL Command 
  ↳/myxl      | Bandwidth usage 
  ↳/setxl 087 | Set default number
@@ -147,6 +148,24 @@ $bot->cmd('/infogempa', function () {
     
     Bot::sendMessage("<code>Mencari info gempa terbaru</code>", $options);
     return Bot::sendMessage("".infoGempa()."",$options);
+    
+});
+$bot->cmd('/restartoc', function () {
+    $options = ['parse_mode' => 'html','reply' => true];
+    
+    Bot::sendMessage("<code>Restarting Openclash</code>", $options);
+    return Bot::sendMessage("".shell_exec("src/plugins/restartoc.sh -bw")."",$options);
+    
+});
+
+$bot->cmd('/hosttoip', function () {
+    $options = ['parse_mode' => 'html','reply' => true];
+    $message = Bot::message();
+    $text_cmd = preg_split('/\s+/', $message['text'], -1, PREG_SPLIT_NO_EMPTY);
+    $cok=str_replace(";","",$text_cmd[1]);
+    $cok=str_replace("&","",$text_cmd[1]);
+    Bot::sendMessage("<code>Processing Host to IP : $cok</code>", $options);
+    return Bot::sendMessage("".shell_exec("src/plugins/hosttoip.sh $cok -bw")."",$options);
     
 });
 
