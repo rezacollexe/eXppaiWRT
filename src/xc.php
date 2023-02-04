@@ -118,13 +118,14 @@ function ProxiesTest(){
     
     $data = json_decode($result,true);
     $data = $data['providers']['TESTBUG']['proxies'];
-    //var_dump($data[3]['all']);
+    var_dump($data);
     $data = $data;
     $final = "⏱ Type | Name | Delay\n\n";
     
         foreach ($data as $key => $value) {
             $name = $value['name'];
-            $delay = $value['history'][-0]['delay'];
+            $lastKey = key(array_slice($value['history'], -1, 1, true));
+            $delay = $value['history'][$lastKey]['delay'];
             $type = $value['type'];
             $color = delayColor($delay);
             if($delay==0){
