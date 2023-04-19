@@ -149,7 +149,7 @@ $bot->cmd('/speedtest', function () {
     $options = ['parse_mode' => 'html','reply' => true];
     if(auth()==true){
     Bot::sendMessage("<code>Speedtest on Progress</code>", $options);
-    return Bot::sendMessage("".Speedtest()."",$options);
+    return Bot::sendMessage("<code>".Speedtest()."</code>",$options);
     }
 });
 $bot->cmd('/infogempa', function () {
